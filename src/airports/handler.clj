@@ -2,7 +2,8 @@
   (:require [compojure.core :refer :all]
             [compojure.route :as route]
             [ring.middleware.defaults :refer [wrap-defaults api-defaults]]
-            [cheshire.core :refer :all]))
+            [cheshire.core :refer :all]
+            [environ.core :refer [env]]))
 
 (defn response [status data]
   {:status status
