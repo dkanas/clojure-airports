@@ -8,7 +8,8 @@
                  [cheshire "5.8.0"]
                  [com.novemberain/monger "3.1.0"]
                  [environ "1.1.0"]]
-  :plugins [[lein-ring "0.9.7"]]
+  :plugins [[lein-ring "0.9.7"]
+            [lein-environ "1.1.0"]]
   :ring {:handler airports.handler/app}
   :profiles
   {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
