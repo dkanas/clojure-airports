@@ -3,7 +3,7 @@
             [compojure.route :as route]
             [ring.middleware.defaults :refer [wrap-defaults api-defaults]]
             [cheshire.core :refer :all]
-            [environ.core :refer [env]]))
+            [airports.db :refer [find-in-db]]))
 
 (defn response [status data]
   {:status status
@@ -12,8 +12,12 @@
 
 (def ok (partial response 200))
 
+(def filters [:iata :continent :name :iso :type :size :status :lon :lat :p])
+(defn find-airports [params]
+  (ok (find-in-db (select-keys params filters))))
+
 (defroutes app-routes
-  (GET "/" [] (ok {:a "b"}))
+  (GET "/" {params :params} (find-airports params))
   (route/not-found "Not Found"))
 
 (def app
