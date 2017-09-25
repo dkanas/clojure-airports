@@ -19,7 +19,12 @@ Example airport document:
 }
 ```
 
-All of the object fields except for _id can be used as query params when calling the API.
+All of the object fields except for _id can be used as query params when calling the API. It also supports pagination.
+
+Example:
+```
+https://clojure-airports.herokuapp.com/?iso=US&size=small&p=2
+```
 
 ## Prerequisites
 
